@@ -5,6 +5,19 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = 'app';
+
+  constructor() {
+    setInterval(() => { this.generateRandomFace(); }, 1000);
+  }
+
+  baseUrl = 'https://api.adorable.io/avatars/500/';
+  urlSuffix = '@adorable.io.png';
+  imageUrl = '';
+
+  generateRandomFace() {
+    this.imageUrl = this.baseUrl + Math.random() + this.urlSuffix;
+    // window.location.reload();
+  }
 }
